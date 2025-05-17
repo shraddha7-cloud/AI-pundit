@@ -13,22 +13,25 @@ const iconUrls = [
 ];
 const settingsIconUrl = 'https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4df9588c-7937-4605-ada1-7971b66824b1';
 const avatarUrl = 'https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/595d297a-0429-4ab6-9fa2-3a53c8b2bf0c';
-
+ 
 const SideNav: React.FC = () => (
   <Box
     sx={{
       width: 72,
-      height: '677px',
+      height: 'calc(100vh - 53px)', // Adjust height to account for navbar
       bgcolor: '#F0EEFD',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'space-between',
       p: 0,
+      m: 0, // Ensure no margin
       boxSizing: 'border-box',
       borderRadius: 0,
       boxShadow: '0px 4px 24px 0px rgba(23, 43, 77, 0.10)',
       minHeight: 0,
+      position: 'relative', // Add relative positioning
+      top: 0, // Ensure it starts at the top
     }}
   >
     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', pt: '16px' }}>

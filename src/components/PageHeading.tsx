@@ -1,142 +1,80 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import React from 'react';
+import { styled } from '@mui/material/styles';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
 
-const ChevronRightIcon = () => (
-  <Box
-    component="span"
-    sx={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: 20,
-      height: 20,
-      mx: 0,
-    }}
-  >
-    <svg
-      width="6.17"
-      height="10"
-      viewBox="0 0 6.17 10"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ opacity: 0.56, display: 'block' }}
-    >
-      <path
-        d="M1 1L5 5L1 9"
-        stroke="#000"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+const BreadcrumbLink = styled(Link)({
+  fontFamily: 'Poppins, sans-serif',
+  fontWeight: 400,
+  fontSize: 16,
+  lineHeight: '24px',
+  color: '#242424',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+  alignSelf: 'flex-start',
+});
+
+const BreadcrumbCurrent = styled(Typography)({
+  fontFamily: 'Poppins, sans-serif',
+  fontWeight: 400,
+  fontSize: 16,
+  lineHeight: '24px',
+  color: '#242424',
+  alignSelf: 'flex-start',
+});
+
+const Title = styled(Typography)({
+  fontFamily: 'Poppins, sans-serif',
+  fontWeight: 500,
+  fontSize: 20,
+  lineHeight: '30px',
+  color: '#363636',
+  textAlign: 'left',
+  alignSelf: 'flex-start',
+  marginTop: 8,
+});
+
+function ChevronSeparator() {
+  return (
+    <span style={{ display: 'flex', alignItems: 'center', margin: '0 4px' }}>
+      <img
+        src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f61d3396-0422-461a-996f-4dd8246a3de8"
+        alt=""
+        width={10}
+        height={10}
+        style={{
+          opacity: 0.56,
+          display: 'block',
+        }}
       />
-    </svg>
-  </Box>
-);
+    </span>
+  );
+}
 
 export default function PageHeading() {
   return (
-    <Box
-      sx={{
-        width: 1560,
-        height: 62,
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        backgroundColor: 'transparent',
-        p: 0,
-        m: 0,
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px',
-          alignItems: 'flex-start',
-          justifyContent: 'flex-start',
-          height: '100%',
-        }}
-      >
+    <Stack direction="row" alignItems="flex-start" width="100%">
+      <Stack spacing={1} minWidth={0} alignItems="flex-start">
         <Breadcrumbs
-          separator={<ChevronRightIcon />}
+          separator={<ChevronSeparator />}
           aria-label="breadcrumb"
           sx={{
+            minHeight: 24,
             p: 0,
             m: 0,
-            fontFamily: 'Poppins',
-            fontSize: 16,
-            lineHeight: '24px',
-            color: '#242424',
-            '& ol': {
-              alignItems: 'center',
-            },
-          }}
-        >
-          <Link
-            underline="none"
-            color="inherit"
-            href="#"
-            sx={{
-              fontFamily: 'Poppins',
-              fontWeight: 400,
-              fontSize: 16,
-              lineHeight: '24px',
-              color: '#242424',
-              letterSpacing: 0,
-              p: 0,
-              m: 0,
-              textAlign: 'left',
-              display: 'inline',
-              minWidth: 0,
-              minHeight: 0,
-              '&:hover': {
-                textDecoration: 'underline',
-              },
-            }}
-          >
-            Dashboard
-          </Link>
-          <Typography
-            sx={{
-              fontFamily: 'Poppins',
-              fontWeight: 400,
-              fontSize: 16,
-              lineHeight: '24px',
-              color: '#242424',
-              letterSpacing: 0,
-              p: 0,
-              m: 0,
-              textAlign: 'left',
-              display: 'inline',
-              minWidth: 0,
-              minHeight: 0,
-            }}
-          >
-            JWT Keys
-          </Typography>
-        </Breadcrumbs>
-        <Typography
-          sx={{
-            fontFamily: 'Poppins',
-            fontWeight: 500,
-            fontSize: 20,
-            lineHeight: '30px',
-            color: '#363636',
-            letterSpacing: 0,
-            textAlign: 'left',
-            display: 'flex',
             alignItems: 'center',
-            height: 30,
-            minHeight: 30,
-            p: 0,
-            m: 0,
-            alignSelf: 'stretch',
           }}
         >
-          JWT Keys
-        </Typography>
-      </Box>
-    </Box>
+          <BreadcrumbLink href="#">Settings</BreadcrumbLink>
+          <BreadcrumbLink href="#">General</BreadcrumbLink>
+          <BreadcrumbCurrent>Site Management</BreadcrumbCurrent>
+        </Breadcrumbs>
+        <Title>Site Management</Title>
+      </Stack>
+    </Stack>
   );
 }

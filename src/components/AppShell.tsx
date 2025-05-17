@@ -9,8 +9,8 @@ const AppShell: React.FC = () => (
   <Box
     sx={{
       width: '100%', // Make header responsive
-      maxWidth: 1550,
-      height: '64px',
+      maxWidth: '100%', // Ensure it fills the full width
+      height: '53px',
       bgcolor: '#FFF',
       boxShadow: '0px 4px 12px 0px rgba(23, 43, 77, 0.12)',
       display: 'flex',
@@ -18,7 +18,9 @@ const AppShell: React.FC = () => (
       alignItems: 'center',
       justifyContent: 'space-between',
       px: '24px',
-      position: 'relative',
+      position: 'sticky', // Keep navbar fixed at the top
+      top: 0,
+      zIndex: 1100, // Ensure navbar is above other content
       overflow: 'visible',
     }}
   >
